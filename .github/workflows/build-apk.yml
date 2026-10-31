@@ -27,13 +27,13 @@ jobs:
       - name: Extract Android project
         run: |
           unzip -q MrMistrious-Professional-Android-Project.zip -d extracted
-          ls -la extracted
 
       - name: Build Debug APK
         run: |
           cd extracted
-          # ورود به اولین پوشه موجود در مسیر استخراج‌شده
-          cd $(ls -d */ | head -n 1)
+          TARGET_DIR=$(ls -d */)
+          echo "Entering directory: $TARGET_DIR"
+          cd "$TARGET_DIR"
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
 
