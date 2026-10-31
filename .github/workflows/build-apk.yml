@@ -30,10 +30,7 @@ jobs:
 
       - name: Build Debug APK
         run: |
-          cd extracted
-          TARGET_DIR=$(ls -d */)
-          echo "Entering directory: $TARGET_DIR"
-          cd "$TARGET_DIR"
+          cd extracted/MrMistrious_Professional
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
 
