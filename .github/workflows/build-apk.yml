@@ -30,11 +30,7 @@ jobs:
 
       - name: Build Debug APK
         run: |
-          # پیدا کردن خودکار پوشه‌ای که فایل gradlew داخل آن قرار دارد
-          GRADLEW_PATH=$(find extracted -name "gradlew" -print -quit)
-          PROJECT_DIR=$(dirname "$GRADLEW_PATH")
-          echo "Found gradlew in: $PROJECT_DIR"
-          cd "$PROJECT_DIR"
+          cd extracted
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
 
